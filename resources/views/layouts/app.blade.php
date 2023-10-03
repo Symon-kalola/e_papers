@@ -42,7 +42,7 @@
             <div class="container-fluid " >
                 <a class="navbar-brand" href="{{ url('/home') }}">
                     <img src="/images/logo.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
-                    BSS-E-Papers
+                    Mubas-E-Papers
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -101,67 +101,6 @@
         </nav>
         
         @guest
-        @else
-         <nav class="navbar navbar-expand-md navbar-light bg-white  shadow-sm"  style="height: 45px">
-            <div class="container-fluid">
-               
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent2" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse bg-white   justify-content-center" id="navbarSupportedContent2"
-                style="font-family:Verdana, Geneva, Tahoma, sans-serif;font-size:13px;"
-                >
-                    
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav  ">
-                        <li class="nav-item">
-                                    <a class="nav-link" href="/">Biology</a>
-                         </li>
-                         <li class="nav-item">
-                                    <a class="nav-link" href="/">English</a>
-                         </li>
-                         <li class="nav-item">
-                                    <a class="nav-link" href="/">Biology</a>
-                         </li>
-                         <li class="nav-item">
-                                <a class="nav-link" href="/">Mathmatics</a>
-                         </li>
-                         <li class="nav-item">
-                                <a class="nav-link" href="/">Life-skills</a>
-                         </li>
-                         <li class="nav-item">
-                                <a class="nav-link" href="/">Geography</a>
-                         </li>
-                         <li class="nav-item">
-                                <a class="nav-link" href="/">Social-Studies</a>
-                         </li>
-                         <li class="nav-item">
-                                <a class="nav-link" href="/">Mathmaticks</a>
-                         </li>
-                         <li class="nav-item">
-                                <a class="nav-link" href="/">Physics</a>
-                         </li>
-                         <li class="nav-item">
-                                <a class="nav-link" href="/">Chemestry</a>
-                         </li>
-                         <li class="nav-item">
-                                <a class="nav-link" href="/">Home-economics</a>
-                         </li>
-                        
-                         
-                     
-                      
-                     
-                                
-                           
-
-                        
-                    </ul>
-                </div>
-            </div>
-        </nav>
             
         @endguest
 
@@ -206,17 +145,97 @@
                         
                           
                                
-                                <div class="form-outline text-white">
-                                    <textarea name="" class="form-control mt-2 text-white border-white" id="descriptionMessage" cols="30" rows="4" style="background:transparent;"></textarea>
-                                      <label for="" class="form-label text-white">Description</label>
-                                </div>
-                                <button class="mt-2 btn btn-primary text-white" style="font-size:12px" id="sendMessage">Send Request </button>
+                              <form method="POST" action="{{ route('login') }}" class="mt-2 px-4">
+                        @csrf
+
+                        <div class="row mb-3">
+                            <label for="module" class="col-md-2 col-form-label  ">{{ __('module Name') }}</label>
+
+                            <div class="col-md-10">
+                                <input id="module" type="text" class="form-control @error('module') is-invalid @enderror" name="module" value="{{ old('module') }}" required autocomplete="module" autofocus>
+
+                                @error('module')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                     
+                       
+                          <div class="row mb-3">
+                            <label for="class" class="col-md-2 col-form-label  ">{{ __('class') }}</label>
+
+                            <div class="col-md-10">
+                              
+                                <select id="class" type="class" class="form-control form-select" @error('class') is-invalid @enderror name="class" value="{{ old('class') }}" required autocomplete="class" autofocus>
+                                 <option selected>BIS</option>
+                                    <option value="commerce">BIT</option>
+                                    <option value="engenearing">BAJ2</option>
+                                    <option value="media studies">BAJ1</option>
+                                </select>    
+
+                                @error('class')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for='semester' class="col-md-2 col-form-label  ">{{ __('Semester') }}</label>
+
+                            <div class="col-md-10">
+                              
+                                <select id='semester' type='semester' class="form-control form-select" @error('semester') is-invalid @enderror name='semester' value="{{ old('semester') }}" required autocomplete='semester' autofocus>
+                                 <option selected value="1">1</option>
+                                    <option value="commerce">2</option>
+                                </select>    
+
+                                @error('semester')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for='year' class="col-md-2 col-form-label  ">{{ __('Year') }}</label>
+
+                            <div class="col-md-10">
+                              
+                                <select id='year' type='year' class="form-control form-select" @error('year') is-invalid @enderror name='year' value="{{ old('year') }}" required autocomplete='year' autofocus>
+                                 <option selected value="1">1</option>
+                                    <option value="commerce">2</option>
+                                    <option value="commerce">3</option>
+                                    <option value="commerce">4</option>
+                                    <option value="commerce">5</option>
+                                </select>    
+
+                                @error('year')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        
+
+                        <div class="row mb-0">
+                            <div class="col-md-10 offset-md-4">
+                                <button type="submit" class="btn btn-primary">
+                                    {{ __('Send Request') }}
+                                </button>
+
+                            </div>
+                        </div>
+              </form>
                           
                    </div>
                  </div>
                  
                  <div class="mt-4 small border-2 border-top text-center border-white ">
-                    &copy;2023 Copyright Blantyre Secondary School
+                    &copy;2023 MUBAS
                  </div>
 
                  
