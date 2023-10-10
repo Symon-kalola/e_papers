@@ -23,6 +23,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/fontawesome/css/all.css') }}" rel="stylesheet">
+
 
      {{-- here i go --}}
      <!-- Scripts -->
@@ -40,8 +42,8 @@
     <div id="app" >
         <nav class="navbar navbar-expand-md navbar-light bg-body-secondary white shadow-sm" >
             <div class="container-fluid " >
-                <a class="navbar-brand" href="{{ url('/home') }}">
-                    <img src="/images/logo.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
+                <a class="navbar-brand" href="{{ url('/') }}">
+                    <img src="/images/mubas-logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
                     Mubas-E-Papers
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -55,7 +57,10 @@
                                     <a class="nav-link active" href="/">Home</a>
                          </li>
                          <li class="nav-item">
-                                    <a class="nav-link" href="/">Disscussion</a>
+                                    <a class="nav-link" href="/papers">Papers</a>
+                         </li>
+                          <li class="nav-item">
+                                    <a class="nav-link" href="/requests">Requests</a>
                          </li>
                        
 
@@ -114,9 +119,9 @@
                  <div class="footer-row row  g-4 py-1" style="color:#abafb1;">
                     <div class="col-md align-items-center">
                       <div>
-                        <div class=" h4 m-0 text-blue fw-bold">BSS PAST PAPERS REPSITORY</div>
+                        <div class=" h4 m-0 text-blue fw-bold">MUBAS PAST PAPERS REPSITORY</div>
 
-                        <p>Want to know more about us? Contact us on the following</p>
+                        <p class="mt-2">Want to know more about us? Contact us on the following</p>
                       </div>
                       <div class="small">
                              <div class="d-flex align-items-center ">
@@ -132,7 +137,7 @@
                              </div>
                              <div class="d-flex mt-2 align-items-center ">
                                 <button class="btn btn-floating bg-primary btn-sm me-3 text-white" style="font-size:12px"><i class="fa fa-envelope"></i></button>
-                                <div class="m-0">info@bss.com</div>
+                                <div class="m-0"><a>info@mubas.ac.mw</a></div>
                              </div>
                                
                       </div>
@@ -145,7 +150,7 @@
                         
                           
                                
-                              <form method="POST" action="{{ route('login') }}" class="mt-2 px-4">
+             <form method="POST" action="{{ route('storeRequest') }}" class="mt-2 px-4">
                         @csrf
 
                         <div class="row mb-3">
@@ -223,7 +228,7 @@
 
                         <div class="row mb-0">
                             <div class="col-md-10 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" onclick='succes()' class="btn btn-primary">
                                     {{ __('Send Request') }}
                                 </button>
 
@@ -249,4 +254,10 @@
         
     </div>
 </body>
+<script>
+    function succes()
+    {
+        window.alert('Request Submitted')
+    }
+</script>
 </html>

@@ -2,14 +2,12 @@
 @section('content')
 <div class="container-fluid">
     <div class=" row">
-        <div class="col-md-3 d-none bg-body-secondary d-md-block " >
-            <div class="list-group mt-1 " style="height:100vh; width:100%">
-               <a href="/admin/" class="list-group-item list-group-item-action outline-secondary list-group-item-dark">Dashboard</a>
-
-              
-                <a href="/admin/papers" class="list-group-item list-group-item-action outline-secondary  list-group-item-dark">Papers</a>
-                <a href="/admin/add/paper" class="list-group-item list-group-item-action outline-secondary active  list-group-item-dark">Add Papers</a>
-                <a href="/admin/request" class="list-group-item list-group-item-action outline-secondary  list-group-item-dark">Raper Requests</a>
+        <div class="col-md-3 d-none bg-secondary d-md-block " >
+             <div class="list-group mt-1  " style="height:100vh; width:100%">
+               <a href="/admin/" class="list-group-item list-group-item-action outline-secondary  list-group-item-dark" ><h6  style="margin-left: -10px;"><b>Dashboard</b></h6></a>
+                <a href="/admin/papers" class="list-group-item list-group-item-action outline-secondary  list-group-item-dark  fa fa-clipboard-check">  Papers</a>
+                <a href="/admin/add/paper" class="list-group-item list-group-item-action outline-secondary  list-group-item-dark fa fa-file-upload active text-white"> Add Papers</a>
+                <a href="/admin/request" class="list-group-item list-group-item-action outline-secondary  list-group-item-dark fa fa-envelope-square "> Paper Requests</a>
             </div>
         </div>
          <div class="col-md-9 bg-white " style="height: 100vh">
@@ -103,18 +101,27 @@
 
                         <div class="row mb-0">
                             <div class="col-md-10 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Add paper') }}
+                                <button onclick="sub()" type="submit" class="btn btn-primary ">  <span class="fa fa-upload"></span>
+                                    {{ __('Upload') }}
                                 </button>
 
                             </div>
                         </div>
+
 </form>
+
           
         </div>
         {{-- end of seconf column --}}
     </div>
 
 </div>
+<script>
+ function sub(){
+    window.alert("Document uploaded successfully")
+
+  }
+
+</script>
 
 @endsection
