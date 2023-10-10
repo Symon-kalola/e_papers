@@ -18,7 +18,7 @@
                     <div class="card py-4 shadow-lg bg-success">
                         <div class="text-center text-light h1  fa fa-file" style="font-size: 60px"></div>
                         <div class="text-center text-light h4">Total Papers</div>
-                        <div class="text-center text-light h4">8</div>
+                        <div class="text-center text-light h4">{{ $papers }}</div>
                     </div>
                     </div>
 
@@ -26,7 +26,7 @@
                     <div class="card shadow-lg py-4 bg-warning">
                         <div class="text-center text-light h1  fa fa-file-import" style="font-size: 60px"></div>
                         <div class="text-center text-light h4">Total Requests</div>
-                        <div class="text-center text-light h4">5</div>
+                        <div class="text-center text-light h4">{{ $requests }}</div>
                     </div>
                     </div>
 
@@ -34,7 +34,7 @@
                     <div class="card shadow-lg py-4 bg-primary">
                         <div class="text-center text-ligt h1 text-white fa fa-user" style="font-size: 60px"></div>
                         <div class="text-center text-light h4">Total Users</div>
-                        <div class="text-center text-light h4">20</div>
+                        <div class="text-center text-light h4">{{ $users }}</div>
                     </div>
                  </div>
 
@@ -43,7 +43,7 @@
                     <div class="card py-4 shadow-lg bg-danger">
                         <div class="text-center text-light h1  fa fa-envelope" style="font-size: 60px"></div>
                         <div class="text-center text-light h4">Un Responded Requests</div>
-                        <div class="text-center text-light h4">8</div>
+                        <div class="text-center text-light h4">{{ $unreq }}</div>
                     </div>
                     </div>
 
@@ -51,7 +51,7 @@
                     <div class="card shadow-lg py-4 bg-info">
                         <div class="text-center text-light h1  fa fa-file-export" style="font-size: 60px"></div>
                         <div class="text-center text-light h4">Responded Requests</div>
-                        <div class="text-center text-light h4">5</div>
+                        <div class="text-center text-light h4">{{ $resreq }}</div>
                     </div>
                     </div>
 
@@ -59,7 +59,7 @@
                     <div class="card shadow-lg py-4 bg-secondary">
                         <div class="text-center text-ligt h1 text-white fa fa-folder-minus" style="font-size: 60px"></div>
                         <div class="text-center text-light h4">Not available Responses</div>
-                        <div class="text-center text-light h4">20</div>
+                        <div class="text-center text-light h4">{{ $nonreq }}</div>
                     </div>
                  </div>
            </div>

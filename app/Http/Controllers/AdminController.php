@@ -21,10 +21,25 @@ class AdminController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+       
     }
      public function index()
     {
-        return view('admin/views/AdminHome');
+      $papers = PolyPapers::count();
+      $requests = Requests::count();
+      $users =User::count();
+      $unreq =  Requests::where('status','')->count();
+      $resreq =  Requests::where('status','available')->count();
+      $nonreq =  Requests::where('status','none')->count();
+
+      
+        return view('admin/views/AdminHome',['papers'=>$papers,
+        'requests'=>$requests,'users'=>$users,'unreq'=>$unreq,
+         'resreq'=>$resreq,'nonreq'=>$nonreq ]
+       
+
+        
+      );
     }
       public function papers()
     {
